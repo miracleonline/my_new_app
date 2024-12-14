@@ -56,6 +56,9 @@
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0"
   },
+  "resolutions": {
+  "react-native": "react-native-web"
+  },
   "engines": {
     "node": ">=18"
   },
