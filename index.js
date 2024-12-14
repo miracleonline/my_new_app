@@ -4,12 +4,9 @@ import { name as appName } from './app.json';
 import { createRoot } from 'react-dom/client'; // React 18+ for web rendering
 
 if (Platform.OS === 'web') {
-  // Render for Web
   const rootElement = document.getElementById('root');
-  const root = createRoot(rootElement); // React 18+ API
-  root.render(<App />);
+  ReactDOM.render(<App />, rootElement);
 } else {
-  // Render for Native
   AppRegistry.registerComponent(appName, () => App);
   AppRegistry.runApplication(appName, {
     initialProps: {},
