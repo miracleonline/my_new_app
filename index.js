@@ -1,10 +1,18 @@
-import { AppRegistry } from 'react-native';
+import { AppRegistry, Platform } from 'react-native';
 import App from './App';
 import { name as appName } from './app.json';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client'; // React 18+ for web rendering
 
-AppRegistry.registerComponent(appName, () => App);
-AppRegistry.runApplication(appName, {
-  initialProps: {},
-  rootTag: document.getElementById('root'),
-});
+if (Platform.OS === 'web') {
+  // Render for Web
+  const rootElement = document.getElementById('root');
+  const root = createRoot(rootElement); // React 18+ API
+  root.render(<App />);
+} else {
+  // Render for Native
+  AppRegistry.registerComponent(appName, () => App);
+  AppRegistry.runApplication(appName, {
+    initialProps: {},
+    rootTag: document.getElementById('root'),
+  });
+}
