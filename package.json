@@ -59,6 +59,9 @@
   "resolutions": {
   "react-native": "react-native-web"
   },
+  "scripts": {
+  "web": "react-app-rewired start"
+  },
   "engines": {
     "node": ">=18"
   },
